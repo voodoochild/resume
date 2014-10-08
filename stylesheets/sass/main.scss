@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+$compressed: true;
+
+@import '_mixins';
+@import '_base';
+@import '_type';
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $background;
+}
+
+div[role="container"] {
+  margin: 0 auto;
+  padding: 2em 1em 1em;
+  position: relative;
+  width: 100%;
+  @include breakpoint(desktop) {
+    width: 800px;
+  }
+}
+
+section + section {
+  margin-top: 2em;
+}
+
+a {
+  @include transition(border-bottom-color .1s ease-in-out);
+  border-bottom: 1px solid $faded;
+  &:hover {
+    border-bottom-color: $highlight;
+  }
+}
+
+p {
+  margin-bottom: 1.5em;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+}
+
+.timespan {
+  @include breakpoint(tablet) {
+    background-color: $really-faded;
+    border-radius: 6px;
+    display: inline-block;
+    float: right;
+    padding: 0 .5em;
+  }
+}
+
+@media only print {
+  #skills h3 {
+    display: inline-block;
+    width: 180px;
+  }
+  #experience h3 {
+    display: inline;
+  }
+  .timespan {
+    margin-left: .5em;
+  }
+}
+
+#education .timespan {
+  display: block;
+}
+
+@include breakpoint(tablet) {
+  #skills h3 {
+    display: inline-block;
+    margin-right: .5em;
+    width: 200px;
+  }
+  #experience h3 {
+    display: inline;
+  }
+  #education .timespan {
+    display: inline;
+  }
+}
+
+#experience .minor + .minor {
+  margin-top: .5em;
+}

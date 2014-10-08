@@ -1,0 +1,70 @@
+html {
+  font-size: 62.5%;
+  font-size: (10/16)*1em;
+  font-family: $serif;
+}
+
+body {
+  color: $foreground;
+  font-size: 100%;
+  font-size: 1.6em;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+::selection {
+  background-color: $highlight;
+  color: $background;
+}
+
+b, strong {
+  font-weight: 700;
+}
+
+a {
+  color: $highlight;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $serif;
+  text-rendering: optimizeLegibility;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.heading-1 {
+  @extend %type-2;
+  @include breakpoint(tablet) {
+    @include font($serif, $bold, 36, 36);  // %type-1
+  }
+}
+
+.timespan {
+  font-style: italic;
+}
+
+#experience h3 {
+  font-weight: normal;
+}
+
+@include breakpoint(tablet) {
+  #skills h3:after {
+    font-weight: $normal;
+  }
+
+  #experience h3,
+  #experience .timespan {
+    line-height: 30px;
+  }
+}
+
+@media only print {
+  body {
+    font-size: 14px;
+  }
+}
+
+#experience .minor h3 {
+  @extend %type-3;
+}
