@@ -16,3 +16,4 @@ $bold: 700;
 %type-1 { @include font($serif, $bold,   36, 36); }
 %type-2 { @include font($serif, $bold,   24, 24); }
 %type-3 { @include font($serif, $normal, 16, 20); }
+%type-4 { @include font($serif, $normal, 12, 12); }

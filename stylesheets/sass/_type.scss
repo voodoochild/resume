@@ -41,7 +41,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .timespan {
-  font-style: italic;
+  @extend %type-4;
 }
 
 #experience h3 {
@@ -66,5 +66,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #experience .minor h3 {
+  @extend %type-3;
+}
+
+#on-the-web {
   @extend %type-3;
 }

@@ -5,6 +5,7 @@ $compressed: true;
 @import '_mixins';
 @import '_base';
 @import '_type';
+@import '../../bower_components/font-awesome/scss/font-awesome.scss';
 
 * {
   -moz-box-sizing: border-box;
@@ -29,11 +30,22 @@ section + section {
   margin-top: 2em;
 }
 
+@media only print {
+  section + section {
+    margin-top: 1em;
+  }
+}
+
 a {
   @include transition(border-bottom-color .1s ease-in-out);
   border-bottom: 1px solid $faded;
   &:hover {
     border-bottom-color: $highlight;
+  }
+  @media only print {
+    & {
+      border-bottom: 0;
+    }
   }
 }
 
@@ -46,17 +58,25 @@ ul, ol {
   padding: 0;
 }
 
-.timespan {
-  @include breakpoint(tablet) {
-    background-color: $really-faded;
-    border-radius: 6px;
+#on-the-web {
+  li {
     display: inline-block;
-    float: right;
-    padding: 0 .5em;
+    margin-right: 1em;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  @media only print {
+    & {
+      display: none;
+    }
   }
 }
 
 @media only print {
+  .timespan {
+    margin-left: .5em;
+  }
   #skills h3 {
     display: inline-block;
     width: 180px;
@@ -64,25 +84,21 @@ ul, ol {
   #experience h3 {
     display: inline;
   }
-  .timespan {
-    margin-left: .5em;
-  }
 }
 
-#education .timespan {
-  display: block;
+#experience .major p {
+  margin-top: 0;
 }
 
 @include breakpoint(tablet) {
+  .timespan {
+    margin-left: .5em;
+  }
   #skills h3 {
     display: inline-block;
-    margin-right: .5em;
     width: 200px;
   }
   #experience h3 {
-    display: inline;
-  }
-  #education .timespan {
     display: inline;
   }
 }
